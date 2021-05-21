@@ -7,8 +7,8 @@ public class Payment {
 			Scanner inputDevice = new Scanner(System.in);
 		Person elmo = new Person();
 		String first,last;
-		double wage;
-		int hours;
+		double wage,taxf;
+		int hours, tax;
 
 		System.out.println("input first name or 999 to leave blank");
 		first = inputDevice.nextLine();
@@ -32,14 +32,20 @@ public class Payment {
 		hours = inputDevice.nextInt();
 		if (hours != 999) {
 			elmo.setHours(hours);
-			
-		inputDevice.close();
-		}
+		} else hours = 40;
 		
+		System.out.println("******************************************************");
 		System.out.println(elmo.toString());
-		System.out.println(elmo.getPayment(hours));
-		System.out.println("*****************************************");
-
+		System.out.println("******************************************************");
+		
+		System.out.println("Enter the % tax in your state (omit % sign)");
+		tax = inputDevice.nextInt();
+		taxf = tax*.01;
+		System.out.println("******************************************************");
+		System.out.println("After taxes you are earning $" + (elmo.getPayment(hours)- elmo.getPayment(hours)*taxf));
+		System.out.println("******************************************************");
+		
+		inputDevice.close();
 		}
 		catch (Exception e) {
 			System.out.println("Oops... something went wrong.");
