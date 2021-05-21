@@ -48,11 +48,11 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return firstName + lastName + ": " + hourlyRate + "/h @ " + hours + " hours";
+		return firstName + " " + lastName + ": " + hourlyRate + "/h @ " + hours + " hours\n" + this.getPayment(hours) + " earned this week before taxes" ;
 	}
 
-	public String getPayment(int hours) {
-		return this.hourlyRate*hours + " earned this week";
+	public double getPayment(int hours) {
+		return this.hourlyRate*hours;
 	}
 	
 }
